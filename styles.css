@@ -1,1 +1,429 @@
-*{background:linear-gradient(to bottom, #000000, #ffffff); font-family: Arial, sans-serif; color: #333333; margin: 0; padding: 0;}
+/* ============================================
+   AI DECODED — Global Stylesheet
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #0a0a0a;
+  --surface: #111111;
+  --card: #161616;
+  --accent: #e8ff00;
+  --accent2: #ff3d3d;
+  --accent3: #00c8ff;
+  --text: #f0ede6;
+  --muted: #888;
+  --border: #252525;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 3rem;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; letter-spacing: 0.15em;
+  color: var(--accent); text-decoration: none;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: var(--muted); text-decoration: none;
+  font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--accent); }
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 3rem 6rem;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem; color: var(--accent); letter-spacing: 0.15em;
+}
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a {
+  font-size: 0.75rem; color: var(--muted); text-decoration: none;
+  letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--text); }
+.footer-copy { font-size: 0.7rem; color: #444; }
+
+/* ============================================
+   PAGE HERO (shared across inner pages)
+   ============================================ */
+.page-hero {
+  min-height: 60vh; padding-top: 80px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding-bottom: 4rem; padding-left: 6rem; padding-right: 6rem;
+  position: relative; overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-bg-text {
+  position: absolute; right: -0.02em; bottom: -0.1em;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22vw; line-height: 1;
+  color: rgba(255,255,255,0.03);
+  pointer-events: none; user-select: none; letter-spacing: -0.02em;
+}
+.page-tag {
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.7rem;
+}
+.page-tag::before {
+  content: ''; display: inline-block; width: 30px; height: 1px;
+}
+/* Per-page tag colours */
+.page-tag.red  { color: var(--accent2); }
+.page-tag.red::before  { background: var(--accent2); }
+.page-tag.blue { color: var(--accent3); }
+.page-tag.blue::before { background: var(--accent3); }
+.page-tag.yellow { color: var(--accent); }
+.page-tag.yellow::before { background: var(--accent); }
+
+.page-intro {
+  font-size: 1.05rem; line-height: 1.7; color: #aaa; max-width: 600px;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 6vw, 7rem);
+  line-height: 0.92; letter-spacing: 0.02em; margin-bottom: 1.5rem;
+}
+h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  letter-spacing: 0.03em; line-height: 1; margin-bottom: 2rem;
+}
+
+/* ============================================
+   SECTION UTILITIES
+   ============================================ */
+.content { max-width: 1100px; margin: 0 auto; padding: 5rem 6rem; }
+
+.section-label {
+  font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.section-label::before {
+  content: ''; display: inline-block; width: 20px; height: 1px; background: var(--accent);
+}
+
+.divider { border: none; border-top: 1px solid var(--border); margin: 4rem 0; }
+
+.page-nav {
+  display: flex; justify-content: space-between;
+  margin-top: 5rem; padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.page-nav a {
+  text-decoration: none; color: var(--muted);
+  font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.page-nav a:hover { color: var(--accent); }
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  display: inline-block; padding: 0.8rem 2rem; text-decoration: none;
+  font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+  font-weight: 500; transition: all 0.25s;
+}
+.btn-primary { background: var(--accent); color: #000; }
+.btn-primary:hover { background: #fff; }
+.btn-outline { border: 1px solid var(--border); color: var(--muted); }
+.btn-outline:hover { border-color: var(--text); color: var(--text); }
+.btn-dark { display: inline-block; padding: 0.9rem 2.5rem; background: #000; color: var(--accent); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; transition: all 0.2s; }
+.btn-dark:hover { background: #111; }
+.btn-ghost-dark { display: inline-block; padding: 0.9rem 2.5rem; border: 2px solid rgba(0,0,0,0.3); color: #000; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; transition: all 0.2s; }
+.btn-ghost-dark:hover { border-color: #000; }
+
+/* ============================================
+   PULL QUOTE
+   ============================================ */
+.pull-quote {
+  padding: 1.5rem 2.5rem; margin: 3rem 0;
+}
+.pull-quote p {
+  font-family: 'DM Serif Display', serif; font-style: italic;
+  font-size: 1.4rem; line-height: 1.5; color: var(--text);
+}
+.pull-quote.red  { border-left: 3px solid var(--accent2); background: rgba(255,61,61,0.05); }
+.pull-quote.blue { border-left: 3px solid var(--accent3); background: rgba(0,200,255,0.04); }
+
+/* ============================================
+   TWO-COLUMN LAYOUT
+   ============================================ */
+.two-col {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem; align-items: start; margin-bottom: 4rem;
+}
+.two-col h3 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin-bottom: 1rem; }
+.two-col p  { font-size: 0.9rem; color: #aaa; line-height: 1.8; margin-bottom: 1rem; }
+
+/* ============================================
+   FEATURE SPLIT (with optional reverse)
+   ============================================ */
+.feature-split {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; margin-bottom: 5rem; align-items: start;
+}
+.feature-split.reverse { direction: rtl; }
+.feature-split.reverse > * { direction: ltr; }
+.feature-text h3 { font-family: 'DM Serif Display', serif; font-size: 1.8rem; line-height: 1.2; margin-bottom: 1rem; }
+.feature-text p  { font-size: 0.9rem; color: #aaa; line-height: 1.8; margin-bottom: 1rem; }
+
+/* ============================================
+   FEATURE VISUAL / ISSUE LIST
+   ============================================ */
+.feature-visual {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 2.5rem; display: flex; flex-direction: column; gap: 1.2rem;
+}
+.issue-item {
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding-bottom: 1.2rem; border-bottom: 1px solid var(--border);
+}
+.issue-item:last-child { border-bottom: none; padding-bottom: 0; }
+.issue-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--accent2); margin-top: 5px; flex-shrink: 0;
+}
+.issue-dot.blue { background: var(--accent3); }
+.issue-title { font-size: 0.85rem; font-weight: 500; margin-bottom: 0.3rem; }
+.issue-desc  { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+
+/* ============================================
+   IMPACT LIST
+   ============================================ */
+.impact-list { list-style: none; display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); }
+.impact-list li {
+  padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border);
+  font-size: 0.85rem; color: var(--muted);
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.impact-list li:last-child { border-bottom: none; }
+.impact-list li::before { content: '—'; color: var(--accent3); flex-shrink: 0; }
+
+/* ============================================
+   CARDS GRID (home page)
+   ============================================ */
+.cards-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
+}
+.card {
+  background: var(--card); padding: 2.5rem 2rem;
+  transition: background 0.25s; text-decoration: none; color: inherit; display: block;
+}
+.card:hover { background: #1e1e1e; }
+.card-icon { font-size: 2rem; margin-bottom: 1.5rem; }
+.card h3 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin-bottom: 0.8rem; line-height: 1.2; }
+.card p   { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+.card-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  margin-top: 1.5rem; font-size: 0.7rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--accent); text-decoration: none;
+}
+.card-link::after { content: '→'; transition: transform 0.2s; }
+.card:hover .card-link::after { transform: translateX(4px); }
+
+/* ============================================
+   CONCERN / SHORTAGE / ACTION GRIDS
+   ============================================ */
+.concern-grid,
+.shortage-grid,
+.action-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
+  margin-top: 2rem;
+}
+.concern-item, .shortage-item, .action-item {
+  background: var(--card); padding: 2rem;
+}
+.concern-item h4, .action-item h4 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 0.6rem; }
+.concern-item p, .shortage-item .effect, .action-item p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+.concern-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--accent2); opacity: 0.4; line-height: 1; margin-bottom: 0.5rem; }
+.shortage-item .resource { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+.action-item { position: relative; overflow: hidden; }
+.action-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
+.action-item:hover::before { transform: scaleX(1); }
+.action-item h4 { margin-top: 0.5rem; }
+.action-emoji { font-size: 1.5rem; }
+
+/* ============================================
+   STATS ROW (economic page)
+   ============================================ */
+.stats-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
+  margin-bottom: 4rem;
+}
+.stat-box { background: var(--card); padding: 2.5rem 2rem; }
+.stat-box .num   { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; line-height: 1; color: var(--accent3); margin-bottom: 0.5rem; }
+.stat-box .label  { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+.stat-box .detail { font-size: 0.75rem; color: #555; margin-top: 0.5rem; }
+
+/* ============================================
+   MONOPOLY BAR CHART
+   ============================================ */
+.monopoly-section { background: var(--card); border: 1px solid var(--border); padding: 3rem; margin-top: 2rem; margin-bottom: 4rem; }
+.monopoly-section h3 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin-bottom: 0.6rem; }
+.monopoly-section p  { font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; line-height: 1.7; }
+.bar-label { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--muted); margin-bottom: 0.5rem; }
+.bar-track { height: 8px; background: var(--border); margin-bottom: 1.2rem; }
+.bar-fill  { height: 100%; background: var(--accent); animation: grow 1.5s ease both; }
+.bar-fill.blue { background: var(--accent3); }
+.bar-fill.red  { background: var(--accent2); }
+@keyframes grow { from { width: 0; } }
+
+/* ============================================
+   REGULATION LIST (solutions page)
+   ============================================ */
+.reg-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 4rem; }
+.reg-item { background: var(--card); padding: 2rem 2.5rem; display: grid; grid-template-columns: 3rem 1fr; gap: 1.5rem; align-items: start; transition: background 0.2s; }
+.reg-item:hover { background: #1a1a1a; }
+.reg-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; line-height: 1; color: var(--accent); opacity: 0.5; }
+.reg-content h3 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
+.reg-content p  { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+.reg-tag { display: inline-block; margin-top: 0.7rem; padding: 0.2rem 0.7rem; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--border); color: var(--muted); }
+
+/* ============================================
+   STATUS BANNER
+   ============================================ */
+.status-banner { background: rgba(232,255,0,0.08); border: 1px solid rgba(232,255,0,0.3); padding: 1.5rem 2rem; margin-bottom: 4rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+.status-icon { font-size: 1.5rem; flex-shrink: 0; }
+.status-text h4 { font-size: 0.85rem; font-weight: 500; margin-bottom: 0.3rem; color: var(--accent); }
+.status-text p  { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+
+/* ============================================
+   PROSE BLOCK
+   ============================================ */
+.prose-block { margin-bottom: 4rem; }
+.prose-block h3 { font-family: 'DM Serif Display', serif; font-size: 1.8rem; margin-bottom: 1rem; }
+.prose-block p  { font-size: 0.9rem; color: #aaa; line-height: 1.8; margin-bottom: 1rem; max-width: 720px; }
+
+/* ============================================
+   CLOSING CTA (solutions page)
+   ============================================ */
+.closing { background: var(--accent); padding: 5rem 6rem; text-align: center; position: relative; overflow: hidden; }
+.closing::before { content: 'ACT'; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-family: 'Bebas Neue', sans-serif; font-size: 20rem; color: rgba(0,0,0,0.06); pointer-events: none; white-space: nowrap; }
+.closing h2  { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 5rem); color: #000; margin-bottom: 1.5rem; position: relative; }
+.closing p   { font-size: 1rem; color: rgba(0,0,0,0.7); max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.7; position: relative; }
+.closing-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; position: relative; }
+
+/* ============================================
+   HOME — HERO
+   ============================================ */
+.hero {
+  min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+  padding-top: 80px; position: relative; overflow: hidden;
+}
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(232,255,0,0.07) 0%, transparent 70%); pointer-events: none; }
+.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem 5rem 6rem; border-right: 1px solid var(--border); }
+.hero-tag { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem; }
+.hero-tag::before { content: ''; display: inline-block; width: 30px; height: 1px; background: var(--accent); }
+.hero-left h1 { font-size: clamp(4rem, 7vw, 8rem); }
+.hero-left h1 span { color: var(--accent); }
+.hero-desc { font-size: 1rem; line-height: 1.7; color: #aaa; max-width: 420px; margin-bottom: 2.5rem; }
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-right { display: flex; flex-direction: column; justify-content: flex-end; padding: 5rem 4rem 5rem 4rem; gap: 1px; }
+.stat-block { padding: 2rem 0; border-top: 1px solid var(--border); display: flex; align-items: baseline; gap: 1rem; }
+.stat-block:last-child { border-bottom: 1px solid var(--border); }
+.stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 1; color: var(--accent); }
+.stat-label  { font-size: 0.8rem; color: var(--muted); line-height: 1.5; max-width: 200px; }
+
+/* ============================================
+   HOME — QUOTE BAND
+   ============================================ */
+.quote-band { background: var(--accent); padding: 2.5rem 6rem; overflow: hidden; position: relative; }
+.quote-band blockquote { font-family: 'DM Serif Display', serif; font-style: italic; font-size: clamp(1.2rem, 2vw, 1.8rem); color: #000; line-height: 1.5; position: relative; padding-left: 3rem; }
+.quote-band blockquote::before { content: '\201C'; font-size: 6rem; line-height: 0.5; position: absolute; left: 0; top: 0.5rem; font-family: Georgia, serif; color: rgba(0,0,0,0.25); }
+.quote-band cite { display: block; margin-top: 0.8rem; font-family: 'DM Sans', sans-serif; font-style: normal; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(0,0,0,0.6); }
+
+/* ============================================
+   HOME — OVERVIEW SECTION
+   ============================================ */
+.overview { background: var(--surface); padding: 6rem; }
+
+/* ============================================
+   HOME — TIMELINE
+   ============================================ */
+.timeline-section { padding: 6rem; }
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--border); }
+.tl-item { position: relative; padding: 0 0 3rem 3rem; }
+.tl-item::before { content: ''; position: absolute; left: -5px; top: 4px; width: 11px; height: 11px; border: 2px solid var(--accent); background: var(--bg); transform: rotate(45deg); }
+.tl-year  { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.4rem; }
+.tl-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
+.tl-desc  { font-size: 0.85rem; color: var(--muted); line-height: 1.7; max-width: 600px; }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-left > * { animation: fadeUp 0.7s ease both; }
+.hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-left > *:nth-child(2) { animation-delay: 0.25s; }
+.hero-left > *:nth-child(3) { animation-delay: 0.4s; }
+.hero-left > *:nth-child(4) { animation-delay: 0.55s; }
+.page-hero > * { animation: fadeUp 0.6s ease both; }
+.page-hero > *:nth-child(2) { animation-delay: 0.1s; }
+.page-hero > *:nth-child(3) { animation-delay: 0.2s; }
+.page-hero > *:nth-child(4) { animation-delay: 0.3s; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1rem; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 3rem 2rem; border-right: none; border-bottom: 1px solid var(--border); }
+  .hero-right { padding: 2rem; }
+  .overview, .timeline-section { padding: 4rem 2rem; }
+  .page-hero { padding: 6rem 2rem 3rem; }
+  .content { padding: 3rem 2rem; }
+  .feature-split { grid-template-columns: 1fr; gap: 2rem; }
+  .feature-split.reverse { direction: ltr; }
+  .two-col { grid-template-columns: 1fr; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .concern-grid, .shortage-grid, .action-grid { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: 1fr; }
+  .quote-band { padding: 2rem; }
+  .closing { padding: 4rem 2rem; }
+  footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+}
